@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App - Project Details</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container mt-5">
+    <h1 class="text-center">Project Title Here</h1> <!-- Dynamic title from backend -->
+
+    <!-- Add New Todo Form -->
+    <div class="mb-4">
+        <h4>Add New Todo</h4>
+        <form action="http://localhost:8080/api/todos" method="POST">
+            <input type="hidden" name="projectId" value="1"> <!-- Replace with actual project ID -->
+            <div class="form-group">
+                <label for="todoDescription">Todo Description</label>
+                <input type="text" class="form-control" id="todoDescription" name="description" placeholder="Enter todo description" required>
+            </div>
+            <button type="submit" class="btn btn-success">Add Todo</button>
+        </form>
+    </div>
+
+    <!-- Todo List -->
+    <div class="mt-4">
+        <h4>Todos</h4>
+        <ul class="list-group">
+            <!-- Manually add or use backend to render todos here -->
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                Sample Todo 1
+                <form action="http://localhost:8080/api/todos/1" method="POST" style="display: inline;">
+                    <input type="hidden" name="_method" value="PATCH">
+                    <input type="hidden" name="completed" value="true">
+                    <button type="submit" class="btn btn-sm btn-success">Mark as Complete</button>
+                </form>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                Sample Todo 2 (Completed)
+                <form action="http://localhost:8080/api/todos/2" method="POST" style="display: inline;">
+                    <input type="hidden" name="_method" value="PATCH">
+                    <input type="hidden" name="completed" value="false">
+                    <button type="submit" class="btn btn-sm btn-secondary">Undo Complete</button>
+                </form>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Back to Projects Button -->
+    <div class="mt-4">
+        <a href="index.html" class="btn btn-primary">Back to Projects</a>
+    </div>
+</div>
+
+</body>
+</html>
